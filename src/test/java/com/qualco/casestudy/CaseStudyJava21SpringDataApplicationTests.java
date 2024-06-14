@@ -1,4 +1,4 @@
-package com.qualco.case_study_java_21_springData;
+package com.qualco.casestudy;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

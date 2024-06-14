@@ -1,4 +1,4 @@
-package com.qualco.case_study_java_21_springData.continent;
+package com.qualco.casestudy.continent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

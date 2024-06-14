@@ -1,4 +1,4 @@
-package com.qualco.case_study_java_21_springData;
+package com.qualco.casestudy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
