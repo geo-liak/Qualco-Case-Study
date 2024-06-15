@@ -9,7 +9,9 @@ import java.util.List;
 public interface CountryRepo extends Repository<Country, Long> {
 	
 	@Query(value = "select c.country_id, c.name, c.area, c.country_code2 from countries c order by c.name", nativeQuery = true)
-	
 	public List<Country> getCountries();
+	
+	@Query(value = "select c.country_id, c.name, c.area, c.country_code2 from countries c where country_id = :countryId", nativeQuery = true)
+	public Country getCountry(Long countryId);
 	
 }

@@ -14,4 +14,8 @@ public class CountryService {
 	public List<Country> getCountries() {
 		return repo.getCountries();
 	}
+	
+	public Country getCountry(Long countryId) {
+		return repo.getCountry(countryId);
+	}
 }

@@ -1,0 +1,26 @@
+<h3>Languages spoken in {{country}}</h3>
+
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th colspan="2">Languages</th>
+    </tr>
+  </thead>
+  <tbody>
+    @if (languages.length === 0) {
+      <tr >
+        <p class="no-data">{{"No data available"}}</p>
+      </tr>
+    } 
+    @else {
+      @for (language of languages; track $index) {
+        <tr>
+          <td>{{ language["language"] }}</td>
+          <td class="aligment-right">@if (language.official === 1) { Official }</td>
+        </tr>    
+      }
+    }
+  </tbody>
+  </table>
+</div>

@@ -1,7 +1,22 @@
-<h3>
-    World Data: Countries
-</h3>
+<h3>World Data: Countries</h3>
 
-@for(country of countries; track $index) {
-    <p>{{country["name"]}} ({{country["countryCode"]}}) has an area of {{country["area"]}} km².</p>
-}
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Code</th>
+        <th>Area</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(country of countries; track $index) {
+      <tr>
+        <td><a (click)="goToRoute('languages', country.countryId)">{{ country["name"] }}</a></td>
+        <td class="data-centered">{{ country["countryCode"] }}</td>
+        <td class="data-centered">{{ country["area"] }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

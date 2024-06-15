@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../services/countries.service';
+import { LanguagesService } from '../services/languages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-countries',
@@ -12,7 +14,8 @@ export class CountriesComponent implements OnInit {
   countries:any[] = [];
 
   constructor(
-    private countriesService: CountriesService
+    private countriesService: CountriesService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -26,9 +29,12 @@ export class CountriesComponent implements OnInit {
         res.forEach((country: any) => {
           this.countries.push(country);
         })
-        console.log(this.countries);
       }
     })
+  }
+
+  goToRoute(route:string, countryId:string) {
+    this.router.navigate([route, countryId])
   }
 }
 

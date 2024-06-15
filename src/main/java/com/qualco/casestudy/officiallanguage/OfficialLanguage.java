@@ -7,13 +7,15 @@ import jakarta.persistence.Id;
 public class OfficialLanguage {
 	@Id
 	private Long languageId;
+	private String country;
 	private String language;
 	private int official;
 	
 	public OfficialLanguage() {
 	}
 	
-	public OfficialLanguage(Long languageId, String language, int official) {
+	public OfficialLanguage(String country, Long languageId, String language, int official) {
+		this.country = country;
 		this.languageId = languageId;
 		this.language = language;
 		this.official = official;
@@ -41,5 +43,13 @@ public class OfficialLanguage {
 	
 	public void setOfficial(int official) {
 		this.official = official;
+	}
+	
+	public String getCountry() {
+		return country;
+	}
+	
+	public void setCountry(String country) {
+		this.country = country;
 	}
 }
