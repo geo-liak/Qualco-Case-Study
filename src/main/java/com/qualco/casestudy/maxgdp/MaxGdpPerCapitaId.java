@@ -1,4 +1,4 @@
-package com.qualco.casestudy.countryinfo;
+package com.qualco.casestudy.maxgdp;
 
 import jakarta.persistence.Embeddable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
-public class CountryInfoId implements Serializable {
+public class MaxGdpPerCapitaId implements Serializable {
 	private Integer year;
 	private Long population;
 	private Long gdp;
@@ -38,8 +38,8 @@ public class CountryInfoId implements Serializable {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof CountryInfoId)) return false;
-		CountryInfoId that = (CountryInfoId) o;
+		if (!(o instanceof MaxGdpPerCapitaId)) return false;
+		MaxGdpPerCapitaId that = (MaxGdpPerCapitaId) o;
 		return getYear().equals(that.getYear()) && getPopulation().equals(that.getPopulation()) && getGdp().equals(that.getGdp());
 	}
 	
