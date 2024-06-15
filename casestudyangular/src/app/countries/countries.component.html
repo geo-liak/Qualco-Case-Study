@@ -1,0 +1,7 @@
+<h3>
+    World Data: Countries
+</h3>
+
+@for(country of countries; track $index) {
+    <p>{{country["name"]}} ({{country["countryCode"]}}) has an area of {{country["area"]}} km².</p>
+}
