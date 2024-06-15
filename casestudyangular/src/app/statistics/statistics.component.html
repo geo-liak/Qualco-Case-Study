@@ -1,0 +1,27 @@
+<h3>Statistics of countries</h3>
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Continent</th>
+        <th>Country</th>
+        <th>GDP</th>
+        <th>Population</th>
+        <th>Region</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(stat of countryStatistics; track $index) {
+      <tr>
+        <td>{{ stat["continent"] }}</td>
+        <td>{{ stat["region"] }}</td>
+        <td>{{ stat["country"] }}</td>
+        <td>{{ stat["population"] }}</td>
+        <td>{{ stat["year"] }}</td>
+        <td>{{ stat["gdp"] }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

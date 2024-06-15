@@ -36,5 +36,12 @@ export const routes: Routes = [
             .then((file) => {return file.LanguagesComponent})
         }
     },
+    {
+        path: "statistics", 
+        loadComponent: () => {
+            return import('./statistics/statistics.component')
+            .then((file) => {return file.StatisticsComponent})
+        }
+    },
     {path: "**", redirectTo: "menu"}
 ];
