@@ -53,7 +53,6 @@ export class LanguagesComponent {
     this.languageService.getCountry(countryId).subscribe({
       next: (res: Country) => {
         this.country = res.name;
-        console.log(this.country);
       }
 
     })

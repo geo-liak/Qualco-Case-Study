@@ -26,9 +26,7 @@ export class GdppercapitaComponent {
     this.gdpPerCapitaService.getMaxGdpPerCapita().subscribe({
       next: (res) => {
         res.forEach((maxGdp: any) => {
-          this.gdpPerCapita.push(maxGdp);
-          console.log(this.gdpPerCapita);
-          
+          this.gdpPerCapita.push(maxGdp);          
         });
       },
     });

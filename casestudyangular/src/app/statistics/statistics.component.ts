@@ -103,7 +103,6 @@ export class StatisticsComponent {
         return true;
       }
     });
-    console.log("Entries: " + tempFilteredStatistics.length);
     this.filteredStatistics = tempFilteredStatistics;
   }
 }

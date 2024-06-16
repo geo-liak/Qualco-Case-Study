@@ -67,15 +67,15 @@
       </tr>
       } @for(stat of filteredStatistics; track $index) {
       <tr>
-        <td>{{ stat["continent"] }}</td>
-        <td>{{ stat["region"] }}</td>
-        <td>{{ stat["country"] }}</td>
+        <td class="aligment-centered">{{ stat["continent"] }}</td>
+        <td class="aligment-centered">{{ stat["region"] }}</td>
+        <td class="aligment-centered">{{ stat["country"] }}</td>
         @if(stat["year"]==null){
         <td class="aligment-centered" colspan="3">No data available</td>
         } @else{
-        <td>{{ stat["population"] }}</td>
-        <td>{{ stat["year"] }}</td>
-        <td>{{ stat["gdp"] }}</td>
+        <td class="aligment-centered">{{ stat["population"] }}</td>
+        <td class="aligment-centered">{{ stat["year"] }}</td>
+        <td class="aligment-centered">{{ stat["gdp"] }}</td>
         }
       </tr>
       }
