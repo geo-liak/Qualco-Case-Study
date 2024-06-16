@@ -1,5 +1,5 @@
 table {
-    width: 40%;
+    width: 60%;
     border-collapse: separate;
     border-spacing: 0;
     margin-bottom: 50px;
@@ -36,7 +36,7 @@ tr:hover {
     background-color: #fffddc;
 }
 
-h3 {
+h1, h3 {
     text-align: center;
     font-family: Arial, sans-serif;
 }
@@ -55,4 +55,39 @@ h3 {
 
 .aligment-right {
     text-align: right;
+}
+
+.aligment-centered {
+    text-align: center;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+label, select, input, button {
+    font-family: Arial, sans-serif;
+    padding: 8px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+select, input, button {
+    background-color: rgba(255, 255, 255, 0.806);
+}
+
+.group {
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.filter-style {
+    background-color: #ddffeb;
+    margin-bottom: 10px;
+    padding: 0 15px 0 15px;
+    border-radius: 10px;
 }

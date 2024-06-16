@@ -1,25 +1,82 @@
+<h1>World Data</h1>
 <h3>Statistics of countries</h3>
+
+<div class="container">
+  <div class="filter-container, filter-style">
+    <span class="group">
+      <label for="regionFilter">Region:</label>
+    <select id="regionFilter" [(ngModel)]="selectedRegion">
+      <option value="All">All</option>
+      @for(region of regions; track $index){
+      <option value="{{ region }}">{{ region }}</option>
+      }
+    </select>
+  </span>
+  <span class="group">
+    <label for="dateFrom">Year From:</label>
+    <input
+      type="number"
+      id="dateFrom"
+      [(ngModel)]="dateFrom"
+      min="{{ minYear }}"
+      max="{{ maxYear }}"
+      placeholder="YYYY"
+    />
+    </span>
+    <span class="group">
+    <label for="dateTo">Year To:</label>
+    <input
+      type="number"
+      id="dateTo"
+      [(ngModel)]="dateTo"
+      min="{{ minYear }}"
+      max="{{ maxYear }}"
+      placeholder="YYYY"
+    />
+    </span>
+    <span class="group"><button (click)="handleClick()">Apply Filters</button></span>
+    <span class="group"><button (click)="handleClear()">Clear</button></span>
+  </div>
+</div>
+
 <div class="container">
   <table>
     <thead>
       <tr>
         <th>Continent</th>
-        <th>Country</th>
-        <th>GDP</th>
-        <th>Population</th>
         <th>Region</th>
+        <th>Country</th>
+        <th>Population</th>
         <th>Year</th>
+        <th>GDP</th>
       </tr>
     </thead>
     <tbody>
-      @for(stat of countryStatistics; track $index) {
+      @if(!dataLoaded) {
+        <tr>
+          <td class="aligment-centered" colspan="6">
+            Please wait while the data are loading.
+          </td>
+        </tr>  
+      }
+      @else if(filteredStatistics.length === 0) {
+      <tr>
+        <td class="aligment-centered" colspan="6">
+          No data available. Please refine the filters you selected.
+        </td>
+      </tr>
+      } @for(stat of filteredStatistics; track $index) {
       <tr>
         <td>{{ stat["continent"] }}</td>
         <td>{{ stat["region"] }}</td>
         <td>{{ stat["country"] }}</td>
+        @if(stat["year"]==null){
+        <td class="aligment-centered" colspan="3">No data available</td>
+        } @else{
         <td>{{ stat["population"] }}</td>
         <td>{{ stat["year"] }}</td>
         <td>{{ stat["gdp"] }}</td>
+        }
       </tr>
       }
     </tbody>
