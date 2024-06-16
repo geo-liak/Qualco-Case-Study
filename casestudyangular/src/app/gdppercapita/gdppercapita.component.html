@@ -1,0 +1,32 @@
+<h1>World Data</h1>
+<h3>When was the maximum GDP per capita achieved for each country</h3>
+
+<div class="container">
+  <table>
+    <thead>
+      <tr>
+        <th>Country</th>
+        <th>Code</th>
+        <th>Year</th>
+        <th>Population</th>
+        <th>Maximum Gdp</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(gdp of gdpPerCapita; track $index) {
+      <tr>
+        <td>{{gdp.country}}</td>
+        <td class="data-centered">{{gdp.code}}</td>
+        @if(gdp.year == null) {
+            <td colspan="3" class="data-centered">No data available</td>   
+        }
+        @else {
+        <td class="data-centered">{{gdp.year}}</td>
+        <td class="data-centered">{{gdp.population}}</td>
+        <td class="data-centered">{{gdp.gdp}}</td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

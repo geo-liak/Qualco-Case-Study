@@ -43,5 +43,12 @@ export const routes: Routes = [
             .then((file) => {return file.StatisticsComponent})
         }
     },
+    {
+        path: "max-gdp-per-capita", 
+        loadComponent: () => {
+            return import('./gdppercapita/gdppercapita.component')
+            .then((file) => {return file.GdppercapitaComponent})
+        }
+    },
     {path: "**", redirectTo: "menu"}
 ];

@@ -9,13 +9,28 @@ import java.util.List;
 @Repository
 public interface MaxGdpPerCapitaRepo extends CrudRepository<MaxGdpPerCapitaDTO, MaxGdpPerCapitaId> {
 	
-	@Query(value = "SELECT c.name AS country, c.country_code3 AS code, cs.year, cs.population, cs.gdp, (cs.gdp / cs.population) AS max_gdp_per_capita FROM countries c " +
-			"LEFT JOIN  country_stats cs ON cs.country_id = c.country_id " +
-			"INNER JOIN (" +
-			"    SELECT cs.country_id, MAX(cs.gdp / cs.population) AS max_gdp_per_capita " +
-			"    FROM  country_stats cs GROUP BY cs.country_id) max_gdp_per_capita_subquery " +
-			"    ON cs.country_id = max_gdp_per_capita_subquery.country_id " +
-			"    AND (cs.gdp / cs.population) = max_gdp_per_capita_subquery.max_gdp_per_capita " +
+	@Query(value = "SELECT " +
+			"    c.name as country, c.country_code3 as code, cs.year, cs.population, cs.gdp " +
+			"FROM " +
+			"    countries c " +
+			"LEFT JOIN " +
+			"    (SELECT " +
+			"            cs1.country_id, cs1.year, cs1.population, cs1.gdp " +
+			"        FROM " +
+			"            country_stats cs1 " +
+			"        JOIN " +
+			"            ( " +
+			"                SELECT " +
+			"                    country_id, MAX(gdp / population) AS max_gdp_per_capita " +
+			"                FROM " +
+			"                    country_stats " +
+			"                WHERE " +
+			"                    population > 0 " +
+			"                GROUP BY " +
+			"                    country_id " +
+			"            ) cs2 ON cs1.country_id = cs2.country_id " +
+			"               AND (cs1.gdp / cs1.population) = cs2.max_gdp_per_capita " +
+			"    ) cs ON c.country_id = cs.country_id " +
 			"ORDER BY " +
 			"    c.name;", nativeQuery = true)
 	List<MaxGdpPerCapitaDTO> getMaxGdpPerCapita();

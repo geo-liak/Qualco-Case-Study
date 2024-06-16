@@ -3,20 +3,18 @@ package com.qualco.casestudy.maxgdp;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
-import org.apache.catalina.valves.rewrite.RewriteCond;
 
 @Entity
 public class MaxGdpPerCapitaDTO {
-
+	
 	@EmbeddedId
 	private MaxGdpPerCapitaId id;
+	@Column(insertable=false, updatable=false)
 	private String country;
+	@Column(insertable=false, updatable=false)
 	private String code;
-	@Column(insertable=false, updatable=false)
 	private Integer year;
-	@Column(insertable=false, updatable=false)
 	private Long population;
-	@Column(insertable=false, updatable=false)
 	private Long gdp;
 	
 	public MaxGdpPerCapitaDTO() {
@@ -75,9 +73,4 @@ public class MaxGdpPerCapitaDTO {
 	public Long getGdp() {
 		return gdp;
 	}
-	
-	public void setGdp(Long gdp) {
-		this.gdp = gdp;
-	}
 }
-	
