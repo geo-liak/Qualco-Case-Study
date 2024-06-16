@@ -7,32 +7,32 @@ import java.util.Objects;
 
 @Embeddable
 public class CountryInfoId implements Serializable {
-	private Integer year;
-	private Long population;
-	private Long gdp;
+	private String continent;
+	private String region;
+	private String country;
 	
-	public Integer getYear() {
-		return year;
+	public String getContinent() {
+		return continent;
 	}
 	
-	public void setYear(Integer year) {
-		this.year = year;
+	public void setContinent(String continent) {
+		this.continent = continent;
 	}
 	
-	public Long getPopulation() {
-		return population;
+	public String getRegion() {
+		return region;
 	}
 	
-	public void setPopulation(Long population) {
-		this.population = population;
+	public void setRegion(String region) {
+		this.region = region;
 	}
 	
-	public Long getGdp() {
-		return gdp;
+	public String getCountry() {
+		return country;
 	}
 	
-	public void setGdp(Long gdp) {
-		this.gdp = gdp;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 	
 	@Override
@@ -40,11 +40,11 @@ public class CountryInfoId implements Serializable {
 		if (this == o) return true;
 		if (!(o instanceof CountryInfoId)) return false;
 		CountryInfoId that = (CountryInfoId) o;
-		return getYear().equals(that.getYear()) && getPopulation().equals(that.getPopulation()) && getGdp().equals(that.getGdp());
+		return getContinent().equals(that.getContinent()) && getRegion().equals(that.getRegion()) && getCountry().equals(that.getCountry());
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(getYear(), getPopulation(), getGdp());
+		return Objects.hash(getContinent(), getRegion(), getCountry());
 	}
 }

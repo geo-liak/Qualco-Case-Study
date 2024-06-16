@@ -9,14 +9,14 @@ public class CountryInfoDTO {
 	
 	@EmbeddedId
 	private CountryInfoId id;
+	@Column(insertable=false, updatable=false)
 	private String continent;
+	@Column(insertable=false, updatable=false)
 	private String region;
+	@Column(insertable=false, updatable=false)
 	private String country;
-	@Column(insertable=false, updatable=false)
 	private Long year;
-	@Column(insertable=false, updatable=false)
 	private Long population;
-	@Column(insertable=false, updatable=false)
 	private Long gdp;
 	
 	public CountryInfoDTO() {
